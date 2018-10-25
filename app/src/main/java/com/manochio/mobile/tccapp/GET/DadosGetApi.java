@@ -76,7 +76,7 @@ public class DadosGetApi{
     }
 
     public static ArrayList<Usuario> listUser() throws JSONException, IOException {
-        String resposta = request("http://192.168.0.107/TCCApp/public/api/usuario");
+        String resposta = request("http://192.168.0.105/TCCApp/public/api/usuario");
         JSONArray jsonArray = new JSONArray(resposta);
         ArrayList<Usuario> s = new ArrayList<Usuario>();
 

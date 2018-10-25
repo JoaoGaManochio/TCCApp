@@ -12,6 +12,8 @@ import com.manochio.mobile.tccapp.POST.DadosApiLogin;
 
 public class LoginActivity extends AppCompatActivity {
 
+//    String emaill = "admin@admin@.com";
+//    String senhaa = "admin";
     EditText txtPass;
     EditText txtEmail;
     Button btnLogar;
@@ -36,19 +38,19 @@ public class LoginActivity extends AppCompatActivity {
         String email = txtEmail.getText().toString();
         String password = txtPass.getText().toString();
         //Verificar o campo "is admin" na api.
-        if(email.equals("admin@admin.com") && password.equals("admin")){
-            Intent admin = new Intent(LoginActivity.this, LogadoAdminActivity.class);
-            Toast.makeText(this, "Area Administrativa", Toast.LENGTH_SHORT).show();
-            startActivity(admin);
-        }
-        else {
+//        if(email.equals(emaill) && password.equals(senhaa)){
+//            Intent admin = new Intent(LoginActivity.this, LogadoAdminActivity.class);
+//            Toast.makeText(this, "Area Administrativa", Toast.LENGTH_SHORT).show();
+//            startActivity(admin);
+//        }
+//        else {
             if (!email.equals("") && !password.equals("")) {
-                DadosApiLogin dadosApi = new DadosApiLogin(this, "http://192.168.0.107/TCCApp/public/api/login", email, password);
+                DadosApiLogin dadosApi = new DadosApiLogin(this, "http://192.168.0.105/TCCApp/public/api/login", email, password);
                 dadosApi.execute();
             } else {
                 Toast.makeText(this, "Campos em branco!", Toast.LENGTH_SHORT).show();
                 //return false;
-            }
+//            }
         }
     }
 }

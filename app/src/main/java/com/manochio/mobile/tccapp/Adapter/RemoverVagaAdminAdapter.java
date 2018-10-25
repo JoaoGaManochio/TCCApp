@@ -34,7 +34,7 @@ public class RemoverVagaAdminAdapter extends ArrayAdapter<Vagas> {
     public View getView(int position, View convertView, ViewGroup parent){
 
         final String id_vagas = elementos.get(position).getId();
-        String url = "http://192.168.0.107/TCCApp/public/api/remover-vagas/" + id_vagas;
+        String url = "http://192.168.0.105/TCCApp/public/api/remover-vagas/" + id_vagas;
         final DadosApiRemoverVagas dadosApi = new DadosApiRemoverVagas(context, url, id_vagas);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

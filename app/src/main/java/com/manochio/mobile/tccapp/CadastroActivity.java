@@ -59,7 +59,7 @@ public class CadastroActivity extends AppCompatActivity {
         //verificar se texto é branco
         if(!first_name.equals("") && !last_name.equals("") && !email.equals("") && !password.equals("") && !city.equals("")
                 && !state.equals("")){
-            DadosApiCadastrar dadosApiCadastrar = new DadosApiCadastrar(this, "http://192.168.0.107/TCCApp/public/api/cadastrar", first_name, last_name, email, password,
+            DadosApiCadastrar dadosApiCadastrar = new DadosApiCadastrar(this, "http://192.168.0.105/TCCApp/public/api/cadastrar", first_name, last_name, email, password,
                     city, state);
             dadosApiCadastrar.execute();
             return true;

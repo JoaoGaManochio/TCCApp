@@ -16,6 +16,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
 import com.manochio.mobile.tccapp.LogadoActivity;
+import com.manochio.mobile.tccapp.LogadoAdminActivity;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.net.MalformedURLException;
@@ -82,8 +84,6 @@ public class DadosApiLogin extends AsyncTask<Void, Void, String> {
             writer.close();
             os.close();
 
-
-
             int responseCode = urlConnection.getResponseCode(); // conexão ok?
             String responseName = urlConnection.getResponseMessage();
 
@@ -93,13 +93,24 @@ public class DadosApiLogin extends AsyncTask<Void, Void, String> {
 
                 //Pega o ID retornado da API.
                 int id = Integer.parseInt(in.readLine());
+                String admin = in.readLine();
+                System.out.println(in.readLine() + "TESTE");
+                System.out.println("TESTE1" + in);
                 in.close();
 
-                result = "Login realizado com sucesso!";
-                Intent intent = new Intent(httpContext, LogadoActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("id", id);
-                httpContext.getApplicationContext().startActivity(intent);
+                if (admin.equals("SIM")){
+                    Intent ad = new Intent(httpContext, LogadoAdminActivity.class);
+                    ad.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    //ad.putExtra("id", id);
+                    httpContext.getApplicationContext().startActivity(ad);
+                }
+                else {
+                    result = "Login realizado com sucesso!";
+                    Intent intent = new Intent(httpContext, LogadoActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("id", id);
+                    httpContext.getApplicationContext().startActivity(intent);
+                }
             }
             else {
                 if (responseCode == HttpURLConnection.HTTP_UNAUTHORIZED) {
