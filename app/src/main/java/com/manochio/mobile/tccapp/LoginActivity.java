@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 //        }
 //        else {
             if (!email.equals("") && !password.equals("")) {
-                DadosApiLogin dadosApi = new DadosApiLogin(this, "http://192.168.0.107/TCCApp/public/api/login", email, password);
+                DadosApiLogin dadosApi = new DadosApiLogin(this, "http://192.168.0.105/TCCApp/public/api/login", email, password);
                 dadosApi.execute();
             } else {
                 Toast.makeText(this, "Campos em branco!", Toast.LENGTH_SHORT).show();
