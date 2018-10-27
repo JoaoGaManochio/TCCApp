@@ -17,6 +17,7 @@ public class CadastroVagasActivity extends AppCompatActivity {
     Button cadatrarVaga;
     TextView nomeVaga;
     Spinner typeVaga;
+    String ip = "http://192.168.0.105/TCCApp/public/api/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class CadastroVagasActivity extends AppCompatActivity {
         //verificar se texto é branco
         if(!name.equals("") && !type.equals("")){
             DadosApiCadastrarVagas dadosApiCadastrarVagas =
-                    new DadosApiCadastrarVagas(this, "http://192.168.0.105/TCCApp/public/api/cadastrar-vagas",name, v);
+                    new DadosApiCadastrarVagas(this, ip + "cadastrar-vagas",name, v);
             dadosApiCadastrarVagas.execute();
             //Toast.makeText(this, "Vaga cadastrada com sucesso!!", Toast.LENGTH_SHORT).show();
             return true;

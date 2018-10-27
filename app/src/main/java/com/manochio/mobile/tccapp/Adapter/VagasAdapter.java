@@ -28,6 +28,8 @@ public class VagasAdapter extends ArrayAdapter<Vagas> {
     private final Context context;
     private  ArrayList<Vagas> elementos;
     int id_user;
+    String ip = "http://192.168.0.105/TCCApp/public/api/";
+
     public VagasAdapter (Context context, ArrayList<Vagas> elementos, int id_user) throws IOException, JSONException {
         super(context, R.layout.vagas_dis, elementos);
         this.context = context;
@@ -39,7 +41,7 @@ public class VagasAdapter extends ArrayAdapter<Vagas> {
     public View getView(final int position, final View convertView, ViewGroup parent) {
 
         final String id_vagas = elementos.get(position).getId();
-        String url = "http://192.168.0.105/TCCApp/public/api/reservar-vagas/" + id_vagas + "/" + id_user;
+        String url = ip + "reservar-vagas/" + id_vagas + "/" + id_user;
         final DadosApiVagas dadosApi = new DadosApiVagas(context, url, id_vagas, id_user);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

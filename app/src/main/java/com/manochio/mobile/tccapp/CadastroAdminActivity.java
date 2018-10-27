@@ -16,6 +16,7 @@ public class CadastroAdminActivity extends AppCompatActivity {
 
     EditText nomeAdmin, sobrenomeAdmin, emailAdmin, senhaAdmin, cidadeAdmin, estadoAdmin;
     Button cadastrarAdmin;
+    String ip = "http://192.168.0.105/TCCApp/public/api/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +59,7 @@ public class CadastroAdminActivity extends AppCompatActivity {
         if(!first_name.equals("") && !last_name.equals("") && !email.equals("") && !password.equals("") && !city.equals("")
                 && !state.equals("")){
             //Manda dados para API
-            DadosApiCadastrarAdmin dadosApiCadastrarAdmin = new DadosApiCadastrarAdmin(this,
-                    "http://192.168.0.105/TCCApp/public/api/cadastrar-admin",
+            DadosApiCadastrarAdmin dadosApiCadastrarAdmin = new DadosApiCadastrarAdmin(this,ip + "cadastrar-admin",
                     first_name, last_name, email, password, city, state);
             dadosApiCadastrarAdmin.execute();
             return true;

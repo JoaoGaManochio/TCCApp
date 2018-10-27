@@ -15,7 +15,9 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class DadosGetApi{
-   private static String readStream(InputStream in){
+    static String ip = "http://192.168.0.105/TCCApp/public/api/";
+
+    private static String readStream(InputStream in){
         BufferedReader r = new BufferedReader(new InputStreamReader(in));
         StringBuilder total = new StringBuilder();
         String line;
@@ -44,7 +46,7 @@ public class DadosGetApi{
     }
 
     public static ArrayList<Vagas> verificarList() throws JSONException, IOException {
-        String resposta = request("http://192.168.0.105/TCCApp/public/api/verifica-vagas");
+        String resposta = request(ip + "verifica-vagas");
         JSONArray jsonArray = new JSONArray(resposta);
         ArrayList<Vagas> s = new ArrayList<Vagas>();
 
@@ -60,7 +62,7 @@ public class DadosGetApi{
    }
 
     public static ArrayList<Vagas> verificarListUser(int id) throws JSONException, IOException {
-        String resposta = request("http://192.168.0.105/TCCApp/public/api/verifica-vagas-user/" + id);
+        String resposta = request(ip + "verifica-vagas-user/" + id);
         JSONArray jsonArray = new JSONArray(resposta);
         ArrayList<Vagas> s = new ArrayList<Vagas>();
 
@@ -76,7 +78,7 @@ public class DadosGetApi{
     }
 
     public static ArrayList<Usuario> listUser() throws JSONException, IOException {
-        String resposta = request("http://192.168.0.105/TCCApp/public/api/usuario");
+        String resposta = request(ip + "usuario");
         JSONArray jsonArray = new JSONArray(resposta);
         ArrayList<Usuario> s = new ArrayList<Usuario>();
 

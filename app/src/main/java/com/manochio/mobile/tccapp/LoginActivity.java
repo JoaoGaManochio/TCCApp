@@ -12,11 +12,11 @@ import com.manochio.mobile.tccapp.POST.DadosApiLogin;
 
 public class LoginActivity extends AppCompatActivity {
 
-//    String emaill = "admin@admin@.com";
-//    String senhaa = "admin";
     EditText txtPass;
     EditText txtEmail;
     Button btnLogar;
+    String ip = "http://192.168.0.105/TCCApp/public/api/";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 //        }
 //        else {
             if (!email.equals("") && !password.equals("")) {
-                DadosApiLogin dadosApi = new DadosApiLogin(this, "http://192.168.0.105/TCCApp/public/api/login", email, password);
+                DadosApiLogin dadosApi = new DadosApiLogin(this, ip + "login", email, password);
                 dadosApi.execute();
             } else {
                 Toast.makeText(this, "Campos em branco!", Toast.LENGTH_SHORT).show();
