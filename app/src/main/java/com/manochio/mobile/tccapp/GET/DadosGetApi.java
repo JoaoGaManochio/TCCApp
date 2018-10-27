@@ -44,7 +44,7 @@ public class DadosGetApi{
     }
 
     public static ArrayList<Vagas> verificarList() throws JSONException, IOException {
-        String resposta = request("http://192.168.0.107/TCCApp/public/api/verifica-vagas");
+        String resposta = request("http://192.168.0.105/TCCApp/public/api/verifica-vagas");
         JSONArray jsonArray = new JSONArray(resposta);
         ArrayList<Vagas> s = new ArrayList<Vagas>();
 
@@ -60,7 +60,7 @@ public class DadosGetApi{
    }
 
     public static ArrayList<Vagas> verificarListUser(int id) throws JSONException, IOException {
-        String resposta = request("http://192.168.0.107/TCCApp/public/api/verifica-vagas-user/" + id);
+        String resposta = request("http://192.168.0.105/TCCApp/public/api/verifica-vagas-user/" + id);
         JSONArray jsonArray = new JSONArray(resposta);
         ArrayList<Vagas> s = new ArrayList<Vagas>();
 

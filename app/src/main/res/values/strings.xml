@@ -39,6 +39,14 @@
     <string name="cidadeuser">CidadeUser</string>
     <string name="estadouser">EstadoUser</string>
     <string name="topo">Topo</string>
+    <string name="estadoadmin">Estado</string>
+    <string name="nomeadmin">Nome</string>
+    <string name="cidadeadmin">Cidade</string>
+    <string name="senhaadmin">Senha</string>
+    <string name="sobrenomeadmin">Sobrenome</string>
+    <string name="e_mailadmin">E-mail</string>
+    <string name="cadastraradmin">Cadastrar</string>
+    <string name="cadastrar_admin">Cadastrar Admin</string>
 
 
     <string-array name="tipoVagas">

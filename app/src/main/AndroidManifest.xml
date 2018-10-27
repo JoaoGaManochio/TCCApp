@@ -32,7 +32,8 @@
         <activity android:name=".LogadoAdminActivity" />
         <activity android:name=".CadastroVagasActivity" />
         <activity android:name=".RemoverVagasAdminActivity" />
-        <activity android:name=".AllUserActivity"></activity>
+        <activity android:name=".AllUserActivity" />
+        <activity android:name=".CadastroAdminActivity"></activity>
     </application>
 
 </manifest>

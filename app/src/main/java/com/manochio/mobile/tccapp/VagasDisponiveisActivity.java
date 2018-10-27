@@ -41,6 +41,7 @@ public class VagasDisponiveisActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(VagasDisponiveisActivity.this, new String[]{Manifest.permission.INTERNET}, 1);
             } else {
                 mostarDados();
+
             }
         } catch (Exception e) {
             Toast.makeText(VagasDisponiveisActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();

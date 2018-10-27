@@ -41,8 +41,8 @@ public class RemoverVagaAdminAdapter extends ArrayAdapter<Vagas> {
 
         View rowView = inflater.inflate(R.layout.vagas_dis, parent, false);
 
-        TextView name = (TextView) rowView.findViewById(R.id.ListName);
-        TextView type = (TextView) rowView.findViewById(R.id.ListType);
+        final TextView name = (TextView) rowView.findViewById(R.id.ListName);
+        final TextView type = (TextView) rowView.findViewById(R.id.ListType);
 
         name.setText(elementos.get(position).getName());
         if(elementos.get(position).getType().equals("N")){
@@ -66,6 +66,16 @@ public class RemoverVagaAdminAdapter extends ArrayAdapter<Vagas> {
             public void onClick(DialogInterface arg0, int arg1) {
                 //Reserva a vaga.
                 dadosApi.execute();
+                type.setText("Removida");
+                name.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                            return false;
+                        }
+                        return false;
+                    }
+                });
             }
         });
 

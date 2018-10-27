@@ -91,14 +91,12 @@ public class DadosApiLogin extends AsyncTask<Void, Void, String> {
 
                 BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
 
-                //Pega o ID retornado da API.
+               //Pega o ID retornado da API.
                 int id = Integer.parseInt(in.readLine());
-                String admin = in.readLine();
-                System.out.println(in.readLine() + "TESTE");
-                System.out.println("TESTE1" + in);
                 in.close();
 
-                if (admin.equals("SIM")){
+                if (id == 0){
+                    result = "Area administrativa!!";
                     Intent ad = new Intent(httpContext, LogadoAdminActivity.class);
                     ad.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     //ad.putExtra("id", id);
@@ -120,7 +118,6 @@ public class DadosApiLogin extends AsyncTask<Void, Void, String> {
                     result = "Erro:" + responseCode + " " + responseName;
                 }
             }
-
         } catch (MalformedURLException e){
             e.printStackTrace();
         } catch (IOException e){

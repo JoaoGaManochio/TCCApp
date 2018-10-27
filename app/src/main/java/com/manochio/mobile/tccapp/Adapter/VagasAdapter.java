@@ -3,15 +3,20 @@ package com.manochio.mobile.tccapp.Adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.manochio.mobile.tccapp.LogadoActivity;
 import com.manochio.mobile.tccapp.Model.Vagas;
 import com.manochio.mobile.tccapp.POST.DadosApiVagas;
 import com.manochio.mobile.tccapp.R;
+import com.manochio.mobile.tccapp.VagasDisponiveisActivity;
 
 import org.json.JSONException;
 
@@ -31,7 +36,7 @@ public class VagasAdapter extends ArrayAdapter<Vagas> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(final int position, final View convertView, ViewGroup parent) {
 
         final String id_vagas = elementos.get(position).getId();
         String url = "http://192.168.0.105/TCCApp/public/api/reservar-vagas/" + id_vagas + "/" + id_user;
@@ -41,14 +46,13 @@ public class VagasAdapter extends ArrayAdapter<Vagas> {
 
         View rowView = inflater.inflate(R.layout.vagas_dis, parent, false);
 
-        TextView name = (TextView) rowView.findViewById(R.id.ListName);
-        TextView type = (TextView) rowView.findViewById(R.id.ListType);
+        final TextView name = (TextView) rowView.findViewById(R.id.ListName);
+        final TextView type = (TextView) rowView.findViewById(R.id.ListType);
 
         name.setText(elementos.get(position).getName());
-        if(elementos.get(position).getType().equals("N")){
+        if (elementos.get(position).getType().equals("N")) {
             type.setText("Normal");
-        }
-        else {
+        } else {
             type.setText("Deficiente");
         }
 
@@ -66,6 +70,17 @@ public class VagasAdapter extends ArrayAdapter<Vagas> {
             public void onClick(DialogInterface arg0, int arg1) {
                 //Reserva a vaga.
                 dadosApi.execute();
+                type.setText("Reservada");
+                name.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                            return false;
+                        }
+                        return false;
+                    }
+                });
+
             }
         });
 
@@ -83,13 +98,14 @@ public class VagasAdapter extends ArrayAdapter<Vagas> {
         name.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     //Exibe
                     alerta.show();
                 }
                 return false;
             }
         });
+
         return rowView;
     }
 }

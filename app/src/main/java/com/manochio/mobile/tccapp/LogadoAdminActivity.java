@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class LogadoAdminActivity extends AppCompatActivity {
 
-    Button cadastrarVagas, removerVagas, listarUsuario;
+    Button cadastrarVagas, removerVagas, listarUsuario, cadastrarAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class LogadoAdminActivity extends AppCompatActivity {
         cadastrarVagas = (Button) findViewById(R.id.btnAddVaga);
         removerVagas = (Button) findViewById(R.id.btnRemVaga);
         listarUsuario = (Button) findViewById(R.id.btnListUser);
+        cadastrarAdmin = (Button) findViewById(R.id.btnCadastroAd);
 
         cadastrarVagas.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +41,14 @@ public class LogadoAdminActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent user = new Intent(LogadoAdminActivity.this, AllUserActivity.class);
                 startActivity(user);
+            }
+        });
+
+        cadastrarAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent admin = new Intent(LogadoAdminActivity.this, CadastroAdminActivity.class);
+                startActivity(admin);
             }
         });
     }
