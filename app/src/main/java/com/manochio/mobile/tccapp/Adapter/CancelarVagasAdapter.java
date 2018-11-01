@@ -21,7 +21,7 @@ public class CancelarVagasAdapter extends ArrayAdapter<Vagas> {
     private final Context context;
     private ArrayList<Vagas> elementos;
     int id_user;
-    String ip = "http://192.168.0.105/TCCApp/public/api/";
+    String ip = "http://172.22.37.152/TCCApp/public/api/";
 
     public CancelarVagasAdapter (Context context, ArrayList<Vagas> elementos, int id_user) throws IOException, JSONException {
         super(context, R.layout.vagas_dis, elementos);

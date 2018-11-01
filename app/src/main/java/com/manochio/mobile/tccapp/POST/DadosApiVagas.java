@@ -16,6 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class DadosApiVagas extends AsyncTask<Void, Void, String> {
@@ -97,7 +98,12 @@ public class DadosApiVagas extends AsyncTask<Void, Void, String> {
                 //result= sb.toString();
             }
             else{
-                result = "Erro:" + responseCode + " " + responseName;
+                if(responseCode == HttpURLConnection.HTTP_UNAUTHORIZED){
+                    result = "Limite de vagas reservada atingido!!!";
+                }
+                else {
+                    result = "Erro:" + responseCode + " " + responseName;
+                }
             }
 
         } catch (MalformedURLException e){

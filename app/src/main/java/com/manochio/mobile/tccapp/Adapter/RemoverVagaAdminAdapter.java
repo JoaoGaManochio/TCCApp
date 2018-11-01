@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class RemoverVagaAdminAdapter extends ArrayAdapter<Vagas> {
     private final Context context;
     private ArrayList<Vagas> elementos;
-    String ip = "http://192.168.0.105/TCCApp/public/api/";
+    String ip = "http://172.22.37.152/TCCApp/public/api/";
 
     public RemoverVagaAdminAdapter (Context context, ArrayList<Vagas> elementos) throws IOException, JSONException {
         super(context, R.layout.vagas_dis, elementos);

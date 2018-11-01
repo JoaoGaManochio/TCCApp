@@ -17,7 +17,7 @@ public class CadastroVagasActivity extends AppCompatActivity {
     Button cadatrarVaga;
     TextView nomeVaga;
     Spinner typeVaga;
-    String ip = "http://192.168.0.105/TCCApp/public/api/";
+    String ip = "http://172.22.37.152/TCCApp/public/api/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

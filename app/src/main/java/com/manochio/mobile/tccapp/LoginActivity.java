@@ -15,7 +15,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText txtPass;
     EditText txtEmail;
     Button btnLogar;
-    String ip = "http://192.168.0.105/TCCApp/public/api/";
+    String ip = "http://172.22.37.152/TCCApp/public/api/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +38,6 @@ public class LoginActivity extends AppCompatActivity {
         String email = txtEmail.getText().toString();
         String password = txtPass.getText().toString();
         //Verificar o campo "is admin" na api.
-//        if(email.equals(emaill) && password.equals(senhaa)){
-//            Intent admin = new Intent(LoginActivity.this, LogadoAdminActivity.class);
-//            Toast.makeText(this, "Area Administrativa", Toast.LENGTH_SHORT).show();
-//            startActivity(admin);
-//        }
-//        else {
             if (!email.equals("") && !password.equals("")) {
                 DadosApiLogin dadosApi = new DadosApiLogin(this, ip + "login", email, password);
                 dadosApi.execute();

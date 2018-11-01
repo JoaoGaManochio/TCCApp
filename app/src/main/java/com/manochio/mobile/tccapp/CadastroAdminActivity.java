@@ -16,7 +16,7 @@ public class CadastroAdminActivity extends AppCompatActivity {
 
     EditText nomeAdmin, sobrenomeAdmin, emailAdmin, senhaAdmin, cidadeAdmin, estadoAdmin;
     Button cadastrarAdmin;
-    String ip = "http://192.168.0.105/TCCApp/public/api/";
+    String ip = "http://172.22.37.152/TCCApp/public/api/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

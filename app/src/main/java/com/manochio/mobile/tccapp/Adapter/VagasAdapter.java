@@ -28,7 +28,7 @@ public class VagasAdapter extends ArrayAdapter<Vagas> {
     private final Context context;
     private  ArrayList<Vagas> elementos;
     int id_user;
-    String ip = "http://192.168.0.105/TCCApp/public/api/";
+    String ip = "http://172.22.37.152/TCCApp/public/api/";
 
     public VagasAdapter (Context context, ArrayList<Vagas> elementos, int id_user) throws IOException, JSONException {
         super(context, R.layout.vagas_dis, elementos);
@@ -72,18 +72,16 @@ public class VagasAdapter extends ArrayAdapter<Vagas> {
             public void onClick(DialogInterface arg0, int arg1) {
                 //Reserva a vaga.
                 dadosApi.execute();
-                type.setText("Reservada");
-                name.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    name.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                                return false;
+                            }
                             return false;
                         }
-                        return false;
-                    }
-                });
-
-            }
+                    });
+                }
         });
 
         //Define um botão como negativo.

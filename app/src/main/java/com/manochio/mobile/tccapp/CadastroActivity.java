@@ -15,7 +15,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     EditText txtNome, txtSobrenome, txtEmail, txtSenha, txtCidade, txtEstado;
     Button btnCadastro ;
-    String ip = "http://192.168.0.105/TCCApp/public/api/";
+    String ip = "http://172.22.37.152/TCCApp/public/api/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (post()) {
-                    Intent logar = new Intent(CadastroActivity.this, LogadoActivity.class);
+                    Intent logar = new Intent(CadastroActivity.this, LoginActivity.class);
                     startActivity(logar);
                     //CadastroActivity.this.finish();
                     //onBackPressed();

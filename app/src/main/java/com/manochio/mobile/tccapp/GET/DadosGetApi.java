@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class DadosGetApi{
-    static String ip = "http://192.168.0.105/TCCApp/public/api/";
+    static String ip = "http://172.22.37.152/TCCApp/public/api/";
 
     private static String readStream(InputStream in){
         BufferedReader r = new BufferedReader(new InputStreamReader(in));
